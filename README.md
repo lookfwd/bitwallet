@@ -24,4 +24,4 @@ are supported.
 
 ## Notes
 
-To release `python setup.py sdist`, `twine upload dist/*`.
+To release `rm -rf dist`, `python setup.py sdist`, `twine upload dist/*`.
