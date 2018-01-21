@@ -22,6 +22,11 @@ with the following format:
 All the [ccxt exchanges](https://github.com/ccxt/ccxt/tree/master/python/ccxt)
 are supported.
 
+`bitwallet` creates temporary files to avoid hitting your exchanges at every
+call. The temporary files are called `<your name>_balances.pkl`. Remove them
+every time you make some transactions in order to reload them. Unless you do so
+the only thing updated between subsequent calls is the coin-USD exchange rate.
+
 ## Notes
 
 To release `rm -rf dist`, `python setup.py sdist`, `twine upload dist/*`.
