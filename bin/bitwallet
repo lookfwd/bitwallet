@@ -49,7 +49,9 @@ class Formatter(object):
         return pd.DataFrame(data, columns=['coin', 'exchange', 'q', 'usd'])
 
 if __name__ == "__main__":
-    who = sys.argv[1]
+    assert sys.argv[1] == "balances"
+
+    who = sys.argv[2]
 
     cache_files = "{}_balances.pkl".format(who)
     yaml_file = "{}.yaml".format(who)

@@ -1,4 +1,5 @@
 # BitWallet
+
 A python module that provides a wallet that can do P&L
 
 ## Installation
@@ -7,7 +8,9 @@ Quick install/upgrade with `pip install --no-cache-dir -U bitwallet`
 
 ## Running
 
-You can get your balances from any number of exchanges by doing: `PYTHONPATH=. bin/balances.py <your name>`. You should have a `<your name>.yaml` file with the following format:
+You can get your balances from any number of exchanges by doing:
+`bitwallet balances <your name>`. You should have a `<your name>.yaml` file
+with the following format:
 
 ```
 -   name: <exchange name - should be a ccxt module>
@@ -16,7 +19,8 @@ You can get your balances from any number of exchanges by doing: `PYTHONPATH=. b
     uid: <uid for exchanges that need it>
 ```
 
-All the [ccxt exchanges](https://github.com/ccxt/ccxt/tree/master/python/ccxt) are supported.
+All the [ccxt exchanges](https://github.com/ccxt/ccxt/tree/master/python/ccxt)
+are supported.
 
 ## Notes
 

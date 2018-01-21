@@ -9,13 +9,20 @@ except(IOError, ImportError, RuntimeError):
     long_description = open('README.md').read()
 
 setup(name='bitwallet',
-      version='1.0.1',
+      version='1.0.2',
       packages=find_packages(),
+      install_requires=[
+          'ccxt',
+          'requests',
+          'pandas',
+          'pyyaml'
+      ],
       description='Python Wallet that enables P&L',
       long_description=long_description,
       author='Dimitrios Kouzis-Loukas',
       author_email='lookfwd@gmail.com',
       url='https://github.com/lookfwd/bitwallet',
+      scripts=['bin/bitwallet'],
       classifiers=[
           'Programming Language :: Python',
           'Programming Language :: Python :: 2.7',
