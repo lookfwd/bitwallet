@@ -9,13 +9,14 @@ except(IOError, ImportError, RuntimeError):
     long_description = open('README.md').read()
 
 setup(name='bitwallet',
-      version='1.0.5',
+      version='1.0.6',
       packages=find_packages(),
       install_requires=[
           'ccxt',
           'requests',
           'pandas',
-          'pyyaml'
+          'pyyaml',
+          'coinbase'
       ],
       description='Python Wallet that enables P&L',
       long_description=long_description,

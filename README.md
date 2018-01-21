@@ -4,7 +4,7 @@ A python module that provides a wallet that can do P&L
 
 ## Installation
 
-Quick install/upgrade with `pip install --no-cache-dir -U bitwallet`
+Quick install/upgrade with `pip install bitwallet`
 
 ## Running
 
@@ -25,3 +25,4 @@ are supported.
 ## Notes
 
 To release `rm -rf dist`, `python setup.py sdist`, `twine upload dist/*`.
+Clean install with updates: `pip install --no-cache-dir -U bitwallet`
