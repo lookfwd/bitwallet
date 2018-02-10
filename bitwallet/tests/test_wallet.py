@@ -56,15 +56,17 @@ class TestWallet(unittest.TestCase):
         for q, p in buy_orders:
             wallet.buy("btcbtc", q, p)
         pnl = []
+
         def audit(q, p):
             pnl.append((sell_all_price - p) * q)
+
         wallet.sell_all("btcbtc", sell_all_price, audit)
         if not auditable:
             pnl == []
             return
         assert len(pnl) == len(buy_orders)
         for i, (q, p) in enumerate(buy_orders):
-            assert pnl[i] == (sell_all_price- p) * q
+            assert pnl[i] == (sell_all_price - p) * q
 
     @given(booleans(),
            lists(tuples(integers(min_value=1), integers(min_value=1)),
@@ -84,8 +86,10 @@ class TestWallet(unittest.TestCase):
         assert total_q > 0
         sell_q = 1 + (0 if (total_q == 1) else (sell_q % (total_q - 1)))
         pnl = []
+
         def audit(q, p):
             pnl.append((sell_all_price - p) * q)
+
         wallet.sell_to_target("btcbtc", sell_q, sell_all_price, audit)
         if not auditable:
             pnl == []

@@ -20,10 +20,10 @@ def open_coinbase(key, secret):
     return Coinbase()
 
 
-def open_exchange(name, key, secret, uid):
-    if name == 'coinbase':
+def open_exchange(class_name, key, secret, uid):
+    if class_name == 'coinbase':
         return open_coinbase(key, secret)
-    klass = getattr(ccxt, name)
+    klass = getattr(ccxt, class_name)
     credentials = {
         'apiKey': key,
         'secret': secret
@@ -38,13 +38,19 @@ def load_exchanges(yaml_file):
     with open(yaml_file, 'rb') as f:
         config = yaml.load(f.read())
         for exchange in config:
-            name = exchange['name']
-            instance = open_exchange(name,
-                                     exchange['key'],
-                                     exchange['secret'],
-                                     exchange.get('uid'))
+            class_name = exchange['name']
+            alias = exchange.get('alias', exchange['name'])
+            try:
+                instance = open_exchange(class_name,
+                                         exchange['key'],
+                                         exchange['secret'],
+                                         exchange.get('uid'))
 
-            balances = instance.fetch_balance()['total']
-            exchange_balances[name] = {coin: q for coin, q in balances.items()
-                                       if q != 0.0}
+                balances = instance.fetch_balance()['total']
+                exchange_balances[alias] = {coin: q
+                                            for coin, q in balances.items()
+                                            if q != 0.0}
+            except ccxt.ExchangeNotAvailable as ex:
+                print ex.message
+
     return exchange_balances

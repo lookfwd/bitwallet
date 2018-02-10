@@ -9,6 +9,7 @@ class Block(object):
     def __repr__(self):
         return "Block({}, {})".format(self.q, self.price)
 
+
 class Account(object):
 
     def __init__(self):
@@ -36,6 +37,7 @@ class Account(object):
         assert empty == (len(self.blocks) == 0)
         return empty
 
+
 class AccountLite(object):
 
     def __init__(self):
@@ -52,6 +54,7 @@ class AccountLite(object):
 
     def __repr__(self):
         return "{}".format(self.q)
+
 
 class Wallet(object):
 
@@ -86,7 +89,7 @@ class Wallet(object):
         assert self.is_price_valid(price)
         assert ticker in self.wallet
         assert q > 0
-        
+
         account = self.wallet[ticker]
 
         if q > account.q:

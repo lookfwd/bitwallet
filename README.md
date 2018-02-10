@@ -29,5 +29,8 @@ the only thing updated between subsequent calls is the coin-USD exchange rate.
 
 ## Notes
 
-To release `rm -rf dist`, `python setup.py sdist`, `twine upload dist/*`.
-Clean install with updates: `pip install --no-cache-dir -U bitwallet`
+To run tests: `python setup.py test`
+
+To release, increase version number in setup.py and then `rm -rf dist`, `python
+setup.py sdist`, `twine upload dist/*`. Clean install with updates: `pip install
+ --no-cache-dir -U bitwallet`
