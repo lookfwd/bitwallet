@@ -29,8 +29,14 @@ the only thing updated between subsequent calls is the coin-USD exchange rate.
 
 ## Notes
 
+To debug run: `clear && rm -f dkl_balances.pkl && PYTHONPATH=. bin/bitwallet
+balances <your name>`
+
+Local installation: `python setup.py install`
 To run tests: `python setup.py test`
 
 To release, increase version number in setup.py and then `rm -rf dist`, `python
-setup.py sdist`, `twine upload dist/*`. Clean install with updates: `pip install
- --no-cache-dir -U bitwallet`
+setup.py sdist`, `twine upload dist/*`.
+
+
+Clean install with updates: `pip install --no-cache-dir -U bitwallet`
