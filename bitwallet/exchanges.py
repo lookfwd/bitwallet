@@ -47,6 +47,7 @@ def load_exchanges(yaml_file):
                                          exchange.get('uid'))
 
                 balances = instance.fetch_balance()['total']
+                assert alias not in exchange_balances  # No duplicate names
                 exchange_balances[alias] = {coin: q
                                             for coin, q in balances.items()
                                             if q != 0.0}

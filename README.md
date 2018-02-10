@@ -17,6 +17,8 @@ with the following format:
     key: <key>
     secret: <secret>
     uid: <uid for exchanges that need it>
+    alias: <optional name - in case you have multiple accounts in single
+    exchange>
 ```
 
 All the [ccxt exchanges](https://github.com/ccxt/ccxt/tree/master/python/ccxt)
