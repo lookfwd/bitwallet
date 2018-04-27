@@ -62,8 +62,8 @@ if __name__ == "__main__":
                            for coin in exchange.keys())))
 
     usd_rates = UsdRates(currencies,
-                         backup_rates={"TEL": 253.7},
-                         translations={"IOTA": "IOT"})
+                         backup_rates={},
+                         translations={"IOTA": "IOT", "RDN": "RDN*"})
 
     formatter = Formatter(balances, usd_rates)
 

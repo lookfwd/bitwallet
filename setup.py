@@ -9,7 +9,7 @@ except(IOError, ImportError, RuntimeError):
     long_description = open('README.md').read()
 
 setup(name='bitwallet',
-      version='1.0.7',
+      version='1.0.8',
       packages=find_packages(),
       install_requires=[
           'ccxt',
